@@ -1,5 +1,5 @@
+@use "../../node_modules/sass-rem" as rem;
 // stylelint-disable at-rule-empty-line-before
-
 @import "variables";
 @import "functions";
 @import "mixins";
@@ -13,7 +13,21 @@
 @import "components/footer";
 
 @import "pages/home";
+// @import "~sass-rem";
 
-body {
- border: solid #ff0000 10px;
+:root {
+ font-size: 62.5%;
+ font-family: "Roboto", sans-serif;
+}
+
+.logo {
+ display: block;
+}
+
+.wrapper {
+ border: solid yellow rem.convert(10px);
+}
+
+.main-header {
+ display: block;
 }

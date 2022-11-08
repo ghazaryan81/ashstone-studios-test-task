@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "npx concurrently \"npm run dev\" \"npm run sass:watch\"",
-    "dev": "npx concurrently \"cross-env NODE_ENV=development npx webpack-dev-server --config webpack.config.babel.js\" \"npm run remove\"",
+    "dev": "npx concurrently \"cross-env NODE_ENV=development npx webpack-dev-server --stats-error-details true --config webpack.config.babel.js\" \"npm run remove\"",
     "prod": "npx concurrently \"cross-env NODE_ENV=production PORT=4601 npx webpack --config webpack.config.babel.js\" \"npm run remove\" \"npm run brows\"",
     "build": "npx concurrently \"npm run prod\"",
     "brows": "npx http-server build",
@@ -79,6 +79,7 @@
     "rimraf": "^3.0.2",
     "sass": "^1.55.0",
     "sass-loader": "^13.1.0",
+    "sass-rem": "^3.0.0",
     "source-map-loader": "^4.0.1",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "^5.3.6",

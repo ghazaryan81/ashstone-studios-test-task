@@ -141,7 +141,8 @@ module.exports = {
   filename: `${dir.assets}/${dir.js}/[name].js`,
  },
  mode: NODE_ENV,
- cache: { type: "memory", cacheUnaffected: true },
+ // cache: { type: "memory", cacheUnaffected: true },
+ cache: false,
 
  infrastructureLogging: {
   level: "log",
@@ -186,6 +187,7 @@ module.exports = {
 
  devtool: isDev ? "source-map" : false,
  profile: isDev ? true : false,
+
  devServer: isDev
   ? {
      open: true,
