@@ -1,0 +1,55 @@
+/* stylelint-disable */
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+}
+
+@mixin start-placeholder-animate-to-right($ms) {
+	@include transition(text-indent, opacity);
+	text-indent: 0;
+	opacity: 1;
+}
+
+@mixin end-placeholder-animate-to-right($delta) {
+	text-indent: $delta;
+	opacity: 0;
+}
+
+@mixin placeholder-animate-to-right($delta: 20px, $ms: 0.25s) {
+	&::placeholder {
+		@content;
+		@include start-placeholder-animate-to-right($ms);
+	}
+	&:placeholder {
+		@content;
+		@include start-placeholder-animate-to-right($ms);
+	}
+	&:input-placeholder {
+		@content;
+		@include start-placeholder-animate-to-right($ms);
+	}
+	&:focus::input-placeholder {
+		@content;
+		@include end-placeholder-animate-to-right($delta);
+	}
+	&:focus::placeholder {
+		@content;
+		@include end-placeholder-animate-to-right($delta);
+	}
+	&:focus:placeholder {
+		@content;
+		@include end-placeholder-animate-to-right($delta);
+	}
+	&:focus:input-placeholder {
+		@content;
+		@include end-placeholder-animate-to-right($delta);
+	}
+}
+/* stylelint-enable */

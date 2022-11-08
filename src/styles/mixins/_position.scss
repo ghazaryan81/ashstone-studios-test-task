@@ -1,0 +1,37 @@
+@mixin p($position: rel, $top: 0, $left: 0) {
+	left: $left;
+	top: $top;
+
+	@if $position == rel {
+		position: relative;
+	} @else if $position == abs {
+		position: absolute;
+	} @else if $position == fix {
+		position: fixed;
+	}
+}
+
+@mixin ptr($top: 0, $right: 0) {
+	position: absolute;
+	right: $right;
+	top: $top;
+}
+
+@mixin pbl($bottom: 0, $left: 0) {
+	position: absolute;
+	left: $left;
+	bottom: $bottom;
+}
+
+@mixin pbr($bottom: 0, $right: 0) {
+	position: absolute;
+	right: $right;
+	bottom: $bottom;
+}
+
+@mixin position-center() {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}

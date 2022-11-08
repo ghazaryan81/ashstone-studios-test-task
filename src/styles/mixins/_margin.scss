@@ -1,0 +1,59 @@
+/* stylelint-disable */
+@mixin margin-x($left, $right: $left) {
+	margin: {
+		left: $left;
+		right: $right;
+	}
+}
+
+@mixin margin-y($top, $bottom: $top) {
+	margin: {
+		top: $top;
+		bottom: $bottom;
+	}
+}
+
+@mixin margin-bl($bottom, $left) {
+	margin: {
+		left: $left;
+		bottom: $bottom;
+	}
+}
+
+@mixin margin-tl($top, $left) {
+	margin: {
+		left: $left;
+		top: $top;
+	}
+}
+
+@mixin margin-rb($right, $bottom) {
+	margin: {
+		right: $right;
+		bottom: $bottom;
+	}
+}
+
+@mixin margin-tr($top, $right) {
+	margin: {
+		right: $right;
+		top: $top;
+	}
+}
+
+@mixin margin($top: null, $right: null, $bottom: null, $left: null) {
+	margin: {
+		left: $left;
+		right: $right;
+		top: $top;
+		bottom: $bottom;
+	}
+}
+
+@mixin push--auto {
+	margin: {
+		left: auto;
+		right: auto;
+	}
+}
+/* stylelint-enable */

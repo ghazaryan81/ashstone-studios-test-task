@@ -1,0 +1,14 @@
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin size-mh($width, $height: $width) {
+	width: $width;
+	min-height: $height;
+}
+
+@mixin max-width($max-width, $width: 100%) {
+	width: $max-width;
+	max-width: $width;
+}

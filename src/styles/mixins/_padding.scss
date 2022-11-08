@@ -1,0 +1,52 @@
+/* stylelint-disable */
+@mixin padding-x($left, $right: $left) {
+	padding: {
+		left: $left;
+		right: $right;
+	}
+}
+
+@mixin padding-y($top, $bottom: $top) {
+	padding: {
+		top: $top;
+		bottom: $bottom;
+	}
+}
+
+@mixin padding-tr($top, $right) {
+	padding: {
+		right: $right;
+		top: $top;
+	}
+}
+
+@mixin padding-tl($top, $left) {
+	padding: {
+		left: $left;
+		top: $top;
+	}
+}
+
+@mixin padding-lb($left, $bottom) {
+	padding: {
+		left: $left;
+		bottom: $bottom;
+	}
+}
+
+@mixin padding-rb($right, $bottom) {
+	padding: {
+		right: $right;
+		bottom: $bottom;
+	}
+}
+
+@mixin padding($top: null, $right: null, $bottom: null, $left: null) {
+	padding: {
+		left: $left;
+		right: $right;
+		top: $top;
+		bottom: $bottom;
+	}
+}
+/* stylelint-enable */

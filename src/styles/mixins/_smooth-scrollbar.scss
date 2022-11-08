@@ -1,0 +1,52 @@
+/* prettier-ignore */
+
+[data-scrollbar] {
+	position: relative;
+	display: block;
+}
+
+.scroll-content {
+	transform: translate3d(0, 0, 0);
+}
+
+.scrollbar-track {
+	position: absolute;
+	z-index: 1;
+	// stylelint-disable-next-line
+	background: transparent !important;
+	opacity: 0;
+	transition: opacity 0.5s 0.5s ease-out;
+	user-select: none;
+}
+
+.scrollbar-track.show,
+.scrollbar-track:hover {
+	opacity: 1;
+	transition-delay: 0s;
+}
+
+.scrollbar-track-x {
+	@include size(100%, 4px);
+
+	left: 0;
+	bottom: 0;
+}
+
+.scrollbar-track-y {
+	@include size(4px, 100%);
+
+	right: 0;
+	top: 0;
+}
+
+.scrollbar-thumb {
+	@include p("abs");
+	// stylelint-disable-next-line
+	border-radius: 0 !important;
+	// stylelint-disable-next-line
+	width: 6px !important;
+}
+
+.scrollbar-thumb.scrollbar-thumb-y {
+	background: var(--brand-color--2-1);
+}

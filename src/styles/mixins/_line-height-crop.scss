@@ -1,0 +1,9 @@
+@mixin line-height-crop($line-height) {
+	&::before {
+		@include size(0);
+
+		content: "";
+		display: block;
+		margin-top: calc((1 - #{$line-height}) * 0.5em);
+	}
+}

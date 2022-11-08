@@ -112,14 +112,13 @@ body {
       position: absolute;
       top: 50%;
       transform: translate(0, -50%);
-      right: rem.convert(-15.74px);
+      right: rem.convert(-12px);
       display: block;
       width: rem.convert(9.41px);
       height: rem.convert(5.41px);
       background-image: svgtodataurl(
        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.41 5.41"> <polygon points="4.71 5.41 0 0.71 0.71 0 4.71 4 8.71 0 9.41 0.71 4.71 5.41"></polygon> </svg>'
       );
-      display: none;
      }
     }
    }

@@ -1,0 +1,137 @@
+@use "sass:map";
+@use "sass:string";
+@use "sass:meta";
+@use "sass:list";
+@use "sass:math";
+
+@mixin fluid($property, $map) {
+	$length: length(map-keys($map));
+	$map: map-sort($map);
+	$keys: map-keys($map);
+
+	@if $length < 2 {
+		@error "fluid() $map requires at least values";
+	}
+
+	@for $i from 1 through ($length - 1) {
+		@media (min-width: nth($keys, $i)) {
+			#{$property}: linear-interpolation(
+				(
+					nth($keys, $i): map-get($map, nth($keys, $i)),
+					nth($keys, ($i + 1)): map-get($map, nth($keys, ($i + 1))),
+				)
+			);
+		}
+	}
+
+	@media (min-width: nth($keys, $length)) {
+		#{$property}: map-get($map, nth($keys, $length));
+	}
+
+	#{$property}: map-get($map, nth($keys, 1));
+}
+
+// linear-interpolation
+@function linear-interpolation($map) {
+	$keys: map-keys($map);
+
+	@if length($keys) != 2 {
+		@error "linear-interpolation() $map must be exactly 2 values";
+	}
+
+	/* stylelint-disable-next-line order/order */
+	$m: (map-get($map, nth($keys, 2)) - map-get($map, nth($keys, 1))) /
+		(nth($keys, 2) - nth($keys, 1));
+	$b: map-get($map, nth($keys, 1)) - $m * nth($keys, 1);
+	$sign: "+";
+
+	@if $b < 0 {
+		$sign: "-";
+		$b: abs($b);
+	}
+
+	@return calc(#{$m * 100}vw #{$sign} #{$b});
+}
+
+// list-sort
+@function list-sort($list) {
+	$sortedlist: ();
+
+	@while length($list) > 0 {
+		$value: nth($list, 1);
+
+		@each $item in $list {
+			@if $item < $value {
+				$value: $item;
+			}
+		}
+
+		/* stylelint-disable-next-line order/order */
+		$sortedlist: append($sortedlist, $value, "space");
+		$list: list-remove($list, index($list, $value));
+	}
+
+	@return $sortedlist;
+}
+
+// map-sort
+@function map-sort($map) {
+	$keys: list-sort(map-keys($map));
+	$sortedMap: ();
+
+	@each $key in $keys {
+		$sortedMap: map-merge(
+			$sortedMap,
+			(
+				$key: map-get($map, $key),
+			)
+		);
+	}
+
+	@return $sortedMap;
+}
+
+// list-remove
+@function list-remove($list, $index) {
+	$newList: ();
+
+	@for $i from 1 through length($list) {
+		@if $i != $index {
+			$newList: append($newList, nth($list, $i), "space");
+		}
+	}
+
+	@return $newList;
+}
+
+// strip-unit
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+// fluid-type
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+	$u3: unit($min-font-size);
+	$u4: unit($max-font-size);
+
+	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+		& {
+			font-size: $min-font-size;
+
+			/* stylelint-disable */
+			@media screen and (min-width: $min-vw) {
+				font-size: calc(
+					#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+						((100vw - #{$min-vw}) / #{strip-unit($m - $min-vw)})
+				);
+			}
+			/* stylelint-enable */
+
+			@media screen and (min-width: $max-vw) {
+				font-size: $max-font-size;
+			}
+		}
+	}
+}

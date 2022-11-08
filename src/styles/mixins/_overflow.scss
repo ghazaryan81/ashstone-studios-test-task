@@ -1,0 +1,8 @@
+/* stylelint-disable */
+@mixin overflow($x, $y) {
+	overflow: {
+		x: $x;
+		y: $y;
+	}
+}
+/* stylelint-enable */
