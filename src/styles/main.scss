@@ -44,6 +44,10 @@ body {
 
 // .logo
 .logo {
+ display: inline-block;
+ position: relative;
+ top: 2px;
+ left: 10px;
  // .logo__img
  &__img {
   display: block;
@@ -57,7 +61,6 @@ body {
  display: flex;
  justify-content: center;
  align-items: center;
- width: 100%;
  border-top: 1px solid #e9e9e9;
  border-bottom: 1px solid #e9e9e9;
  height: rem.convert(59px);
@@ -72,13 +75,19 @@ body {
   &-ul {
    height: inherit;
    display: inline-flex;
+   // min-width: rem.convert(552px);
+   justify-content: space-between;
+   margin-left: rem.convert(18px);
+   padding-top: rem.convert(2px);
   }
 
   // .menu__nav-li
   &-li {
    height: inherit;
-   padding-left: rem.convert(23.66px);
-   padding-right: rem.convert(23.66px);
+   padding-right: 45px;
+   &:last-child {
+    padding-right: 0;
+   }
   }
 
   // .menu__nav-link
@@ -110,6 +119,7 @@ body {
       background-image: svgtodataurl(
        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.41 5.41"> <polygon points="4.71 5.41 0 0.71 0.71 0 4.71 4 8.71 0 9.41 0.71 4.71 5.41"></polygon> </svg>'
       );
+      display: none;
      }
     }
    }
