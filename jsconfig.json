@@ -1,0 +1,12 @@
+{
+ "compilerOptions": {
+  "baseUrl": "./",
+  "paths": {
+   "@.components": ["src/components/*"],
+   "@.data": ["src/data/*"],
+   "@.icons": ["src/icons/*"],
+   "@.shared": ["src/shared/*"]
+  }
+ },
+ "exclude": ["node_modules", "dist"]
+}
