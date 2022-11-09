@@ -47,8 +47,8 @@ body {
 // .search-form
 .search-form {
  position: absolute;
- right: 19px;
- top: 6px;
+ right: rem(19px);
+ top: rem(6px);
 
  // .submit-btn
  .submit-btn {
@@ -205,6 +205,7 @@ body {
  @include padding-x(20px);
  margin-bottom: 47px;
  max-width: calc(100% / 3);
+
  @media screen and (max-width: 768px) {
   max-width: calc(100% / 2);
  }
@@ -284,7 +285,6 @@ body {
   text-decoration: none;
   font-weight: 700;
   color: #000;
-  margin-right: rem(11px);
 
   // .article-info__author-name-link
   &-link {
@@ -296,7 +296,6 @@ body {
  // .article-info__publish-date
  &__publish-date {
   color: #9b9b9b;
-  margin-right: rem(10px);
  }
 
  // .article-info__view
@@ -402,5 +401,27 @@ body {
   color: #000;
   display: block;
   padding: 9.4px 0 6.9px 0;
+ }
+}
+
+i.separator {
+ @include size(rem(8px), rem(8.5px));
+ display: inline-block;
+ flex-shrink: 0;
+ flex-grow: 0;
+ position: relative;
+ top: 0;
+ left: 0;
+ &:after {
+  @include size(rem(3px));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  display: block;
+  background: #d7d7d7;
+  border-radius: 50%;
+  overflow: hidden;
  }
 }
