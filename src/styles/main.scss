@@ -27,8 +27,8 @@
 body {
  font-size: 100%;
  font-weight: 400;
- font-size: 14px;
- line-height: 20px;
+ font-size: rem(14px);
+ line-height: rem(20px);
 }
 
 // .wrapper
@@ -54,6 +54,7 @@ body {
   display: block;
   max-width: rem(181px);
   width: 100%;
+  transition: all 0.16s linear;
  }
 }
 
@@ -107,6 +108,7 @@ body {
       right: rem(-12px);
       transform: translate(0, -50%);
       display: block;
+      background-repeat: no-repeat;
       background-image: svgtodataurl(
        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.41 5.41"><polygon points="4.71 5.41 0 0.71 0.71 0 4.71 4 8.71 0 9.41 0.71 4.71 5.41"/></svg>'
       );
@@ -122,6 +124,7 @@ body {
  width: 100%;
  display: flex;
  justify-content: center;
+ padding-bottom: rem(70px);
  // .wide-container--top-space
  &--top-space {
   padding-top: rem(38px);
@@ -174,9 +177,18 @@ body {
  font-weight: 700;
  font-size: rem(24px);
  line-height: rem(30px);
- color: #000;
  &__link {
-  text-decoration: none;
+  display: inline;
+  color: #000;
+  transition: all 0.16s linear;
+  /*   text-decoration: underline 1px rgba(0, 0, 0, 0);
+  transition: text-decoration-color 0.16s linear, color 0.16s linear;
+  text-underline-offset: 3px; */
+  &:hover {
+   background-color: #000;
+   color: #fff;
+   // text-decoration-color: rgba(204, 204, 204, 0.5);
+  }
  }
 }
 
@@ -188,6 +200,20 @@ body {
  text-decoration: none;
  margin-top: rem(13px);
  display: inline-block;
+}
+
+.article-info__author-name-link,
+.blog-category {
+ text-decoration: none;
+ background-image: linear-gradient(currentColor, currentColor);
+ background-position: 0% 100%;
+ background-repeat: no-repeat;
+ background-size: 0% 2px;
+ transition: background-size 0.3s;
+ &:hover,
+ &:focus {
+  background-size: 100% 2px;
+ }
 }
 
 // .article-info
@@ -204,6 +230,7 @@ body {
 
   // .article-info__author-name-link
   &-link {
+   padding-bottom: rem(3px);
    text-decoration: none;
   }
  }
@@ -226,6 +253,18 @@ body {
 }
 
 .figure {
+ overflow: hidden;
+ picture {
+  transition: ease-out all 0.7s;
+  filter: brightness(1);
+ }
+ picture:hover {
+  // transform: scale(1.2) rotate(2deg);
+  transform: scale(1.1);
+  text-decoration: none;
+  filter: brightness(1.4);
+ }
+
  &,
  picture {
   display: block;
