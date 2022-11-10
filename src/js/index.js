@@ -19,3 +19,26 @@ window.onscroll = function () {
       .scrollTop;
  console.log(posTop);
 };
+
+let menu = document.querySelector(".menu");
+let mobileMenuHeader = document.querySelector(".mobile-menu-header");
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const closeMenu = document.querySelector(".close-menu");
+let mobile = false;
+hamburgerMenu.addEventListener("click", (e) => {
+ mobile = !mobile;
+ menu.setAttribute("class", mobile ? "menu menu-mobile-visible" : "menu");
+ mobileMenuHeader.setAttribute(
+  "class",
+  mobile ? "mobile-menu-header display-flex" : "mobile-menu-header"
+ );
+});
+
+closeMenu.addEventListener("click", (e) => {
+ mobile = !mobile;
+ menu.setAttribute("class", mobile ? "menu menu-mobile-visible" : "menu");
+ mobileMenuHeader.setAttribute(
+  "class",
+  mobile ? "mobile-menu-header display-flex" : "mobile-menu-header"
+ );
+});
