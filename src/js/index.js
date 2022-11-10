@@ -82,13 +82,13 @@ window.onscroll = function () {
       .scrollTop;
 
  if (posTop >= prevPosTop) {
-  // console.log("up");
+  console.log("down");
+  menuDownUp(posTop);
  } else {
-  // console.log("down");
-  // menu.setAttribute("class", "menu menu-to-top");
+  console.log("up");
+  menu.classList.remove("menu-to-top");
  }
  prevPosTop = posTop;
- menuDownUp(posTop);
 };
 
 function menuDownUp(posTop) {

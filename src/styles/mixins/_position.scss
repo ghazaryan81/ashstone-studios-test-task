@@ -8,6 +8,8 @@
   position: absolute;
  } @else if $position == fix {
   position: fixed;
+ } @else if $position == sticky {
+  position: sticky;
  }
 }
 

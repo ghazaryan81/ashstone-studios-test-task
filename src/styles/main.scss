@@ -79,8 +79,7 @@ button {
 .logo {
  display: inline-block;
  @include p("rel", rem(2px), rem(1px));
- padding-right: 55px;
- padding-left: 55px;
+ @include padding-x(rem(55px));
  // .logo__img
  &__img {
   display: block;
@@ -90,9 +89,9 @@ button {
   transition: all 0.16s linear;
 
   @media screen and (max-width: 480px) {
-   max-width: 161.28px;
+   max-width: rem(161.28px);
    max-height: 100%;
-   margin-top: 2px;
+   margin-top: rem(2px);
    margin-left: 0;
   }
  }
@@ -100,10 +99,8 @@ button {
 
 // .menu
 .menu {
+ @include p("sticky");
  height: rem(59px);
- position: sticky;
- top: 0;
- left: 0;
  z-index: 10;
  transition: ease-out 0.2s all;
  // .menu__inner
@@ -112,7 +109,9 @@ button {
   background-color: #fff;
   border-top: 1px solid #e9e9e9;
   border-bottom: 1px solid #e9e9e9;
-  height: 100%;
+  @media screen and (min-width: 480px) {
+   height: 100%;
+  }
  }
 
  // .menu__nav
@@ -164,9 +163,7 @@ button {
      &:after {
       @include size(rem(9.41px), rem(5.41px));
       content: "";
-      position: absolute;
-      top: 50%;
-      right: rem(-12px);
+      @include ptr(50%, rem(-12px));
       transform: translate(0, -50%);
       display: block;
       background-repeat: no-repeat;
@@ -330,11 +327,11 @@ button {
  picture {
   transition: ease-out all 0.7s;
   filter: brightness(1);
- }
- picture:hover {
-  transform: scale(1.1);
-  text-decoration: none;
-  filter: brightness(1.4);
+  &:hover {
+   transform: scale(1.1);
+   text-decoration: none;
+   filter: brightness(1.4);
+  }
  }
 
  &,
@@ -351,31 +348,23 @@ button {
 
 // .drop-down
 .drop-down {
- position: absolute;
- left: 14px;
- top: 100%;
+ @include p("abs", 100%, rem(14px));
  display: none;
 
  @media screen and (max-width: 480px) {
   @include p;
-  // display: block;
   .drop-down__box {
-   border: 0px solid #e9e9e9;
+   border: 0 solid #e9e9e9;
   }
  }
 
  // .drop-down__box
  &__box {
-  min-width: 176px;
-  min-height: 173px;
-  background: #ffffff;
+  min-width: rem(176px);
+  min-height: rem(173px);
+  background: #fff;
   border: 1px solid #e9e9e9;
   padding: rem(10px 20px 3px 19px);
- }
-
- // .drop-down__ul
- &__ul {
-  text-decoration: none;
  }
 
  // .drop-down__li
@@ -392,7 +381,7 @@ button {
   &--arrow-next {
    &:hover {
     .drop-down__link-txt {
-     padding-left: 8px;
+     padding-left: rem(8px);
      color: #969696;
     }
    }
@@ -402,9 +391,7 @@ button {
     transition: ease-out 0.16s all;
     &:after {
      @include size(rem(4.76px), rem(7.81px));
-     position: absolute;
-     top: 0;
-     right: 0;
+     @include ptr;
      content: "";
      background-repeat: no-repeat;
      background-image: svgtodataurl(
@@ -419,11 +406,11 @@ button {
  &__link {
   text-decoration: none;
   font-weight: 400;
-  font-size: 13px;
-  line-height: 13px;
+  font-size: rem(13px);
+  line-height: rem(13px);
   color: #000;
   display: block;
-  padding: 9.4px 0 6.9px 0;
+  padding: rem(9.4px 0 6.9px 0);
  }
 }
 
@@ -447,17 +434,16 @@ i.separator {
 
 .hamburger-menu {
  @include p("abs", rem(6px), rem(21px));
- z-index: 100;
  @include size(rem(27px), rem(18.76px));
+ z-index: 100;
  display: none;
  @media screen and (max-width: 480px) {
-  display: block;
   @include p("abs", rem(9px), rem(19px));
+  display: block;
  }
 }
 
 .close-menu {
- // @include p("abs", rem(6px), rem(21px));
  @include size(rem(20px), rem(20px));
  display: block;
 }
@@ -486,7 +472,7 @@ i.separator {
  @include p;
  border-bottom: solid #e9e9e9 1px;
  display: none;
- min-height: 81.5px;
+ min-height: rem(81.5px);
  align-items: center;
  justify-content: space-between;
 
@@ -507,9 +493,7 @@ i.separator {
 .menu {
  @media screen and (max-width: 480px) {
   @include size(calc(100% - 45px), 100%);
-  position: fixed;
-  top: 0;
-  left: -100%;
+  @include p("fix", 0, -100%);
   transition: linear all 0.16s;
   z-index: 100;
   padding: 0;
@@ -551,27 +535,30 @@ i.separator {
  }
 }
 
+// .menu-mobile-visible
 .menu-mobile-visible {
  display: block;
  left: 0;
 }
 
+// .display-block
 .display-block {
  display: block;
 }
 
+// .display-flex
 .display-flex {
  @media screen and (max-width: 480px) {
   display: flex;
  }
 }
 
+// .part-opacity
 .part-opacity {
  opacity: 0.5;
 }
 
-// main-header
-// wide-container
+// .menu-to-top
 .menu-to-top {
  @media screen and (min-width: 480px) {
   top: rem(-70px);
