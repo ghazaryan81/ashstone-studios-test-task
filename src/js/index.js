@@ -85,7 +85,7 @@ window.onscroll = function () {
   // console.log("up");
  } else {
   // console.log("down");
-  menu.setAttribute("class", "menu menu-to-top");
+  // menu.setAttribute("class", "menu menu-to-top");
  }
  prevPosTop = posTop;
  menuDownUp(posTop);

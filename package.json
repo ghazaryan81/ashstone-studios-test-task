@@ -13,7 +13,7 @@
     "email": "hovhannesi.hayk.ghazaryan.81@gmail.com"
   },
   "scripts": {
-    "start": "npx concurrently \"npm run dev\" \"npm run sass:watch\"",
+    "start": "npx concurrently \"cross-env NODE_ENV=development npx webpack-dev-server --stats-error-details true --config webpack.config.babel.js\" \"npm run remove\"",
     "dev": "npx concurrently \"cross-env NODE_ENV=development npx webpack-dev-server --stats-error-details true --config webpack.config.babel.js\" \"npm run remove\"",
     "prod": "npx concurrently \"cross-env NODE_ENV=production PORT=4601 npx webpack --config webpack.config.babel.js\" \"npm run remove\" \"npm run brows\"",
     "build": "npx concurrently \"npm run prod\"",
