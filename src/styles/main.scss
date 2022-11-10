@@ -491,19 +491,16 @@ i.separator {
  justify-content: space-between;
 
  .close-menu {
+  @include ptr(rem(34px), rem(19px));
   display: block;
-  position: absolute;
-  right: 19px;
-  top: 34px;
  }
 }
 
 .logo-mobile {
- margin-top: 8px;
- margin-left: 18px;
+ margin-top: rem(8px);
+ margin-left: rem(18px);
  .logo__img {
-  width: 165.28px;
-  height: 24px;
+  @include size(rem(165.28px), rem(24px));
  }
 }
 
@@ -538,17 +535,14 @@ i.separator {
    display: block;
    height: auto;
    padding: 0;
+   padding-left: rem(19.5px);
    margin-left: 0;
-   padding-left: 19.5px;
-   margin-top: 16px;
+   margin-top: rem(16px);
   }
   .menu__nav-li {
    display: block;
    height: auto;
-   padding-left: 0;
-   padding-right: 0;
-   padding-top: 16px;
-   padding-bottom: 13.5px;
+   padding: rem(16px 0 13.5px);
    border-bottom: 1px solid #e9e9e9;
   }
   .menu__nav-link {
@@ -558,17 +552,17 @@ i.separator {
 }
 
 .menu-mobile-visible {
- display: block !important;
- left: 0 !important;
+ display: block;
+ left: 0;
 }
 
 .display-block {
- display: block !important;
+ display: block;
 }
 
 .display-flex {
  @media screen and (max-width: 480px) {
-  display: flex !important;
+  display: flex;
  }
 }
 
@@ -580,6 +574,6 @@ i.separator {
 // wide-container
 .menu-to-top {
  @media screen and (min-width: 480px) {
-  top: -70px;
+  top: rem(-70px);
  }
 }
