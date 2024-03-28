@@ -1,10 +1,5 @@
 
 # Test Task
 
-after clone repo , install packages: npm i
-
-after install packages, run dev mode: npm run dev
-
-run build mode: npm run build
-
-deploy url: https://gh-blog-listing.netlify.app/
+url: https://gh-blog-listing.netlify.app/
+run: git clone https://github.com/ghazaryan81/ashstone-studios-test-task.git && cd ashstone-studios-test-task && npm i && npm run dev
